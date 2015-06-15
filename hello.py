@@ -5,7 +5,7 @@ import urlparse
 
 app = Flask(__name__)
 
-
+"""
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
@@ -16,7 +16,7 @@ con = psycopg2.connect(
     host=url.hostname,
     port=url.port
 )
-
+"""
 @app.route('/')
 def hello():
     return render_template("presentation.html")
