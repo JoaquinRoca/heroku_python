@@ -5,18 +5,18 @@ import urlparse
 
 app = Flask(__name__, static_folder="static",static_url_path="")
 
-"""
+
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 con = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
+    database="dcq831hkco5on8",
+    user="tyderfzsicjagq",
+    password="2FyTBBWnZgLDAU_rWICXUk5bDw",
+    host="ec2-174-129-26-115.compute-1.amazonaws.com",
+    port="5432"
 )
-"""
+
 @app.route('/')
 def hello():
     return render_template("presentation.html")
