@@ -70,7 +70,7 @@ def createwc(words):
     plt.axis("off")
     plt.draw()
     #title="static/test"+str(numoftweets)+".png"
-    plt.savefig("wordcloud.png")
+    plt.savefig("static/wordcloud.png")
     #plt.show()
     return True
 
