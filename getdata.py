@@ -1,31 +1,26 @@
 import os
 from flask import Flask,render_template
 import psycopg2
-import urlparse
 import plist
 import re
 import tweepy
 import json
 from nltk.corpus import stopwords
 
-app = Flask(__name__, static_folder="static",static_url_path="")
 # Consumer keys and access tokens, used for OAuth
 consumer_key = plist.consumer_key
 consumer_secret = plist.consumer_secret
 access_token = plist.access_token
 access_token_secret = plist.access_token_secret
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
-
 con = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
+    database="dcq831hkco5on8",
+    user="tyderfzsicjagq",
+    password="2FyTBBWnZgLDAU_rWICXUk5bDw",
+    host="ec2-174-129-26-115.compute-1.amazonaws.com",
+    port="5432"
 )
-cur = con.cursor()
+cur=con.cursor()
 
 class StdOutListener(tweepy.StreamListener):
     def on_data(self, data):
@@ -63,6 +58,7 @@ def word_magic(text):
         if word.lower() not in stop and not word.startswith('@') and 'http' not in word and word != '':
            low.append(word)
     return(low)
+
 
 if __name__ == '__main__':
     l = StdOutListener()
