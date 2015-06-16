@@ -19,13 +19,13 @@ urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 con = psycopg2.connect(
-    database="dcq831hkco5on8",
-    user="tyderfzsicjagq",
-    password="2FyTBBWnZgLDAU_rWICXUk5bDw",
-    host="ec2-174-129-26-115.compute-1.amazonaws.com",
-    port="5432"
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
 )
-cur=con.cursor()
+cur = con.cursor()
 
 class StdOutListener(tweepy.StreamListener):
     def on_data(self, data):
@@ -63,7 +63,6 @@ def word_magic(text):
         if word.lower() not in stop and not word.startswith('@') and 'http' not in word and word != '':
            low.append(word)
     return(low)
-
 
 if __name__ == '__main__':
     l = StdOutListener()
