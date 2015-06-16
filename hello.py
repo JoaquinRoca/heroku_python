@@ -3,7 +3,7 @@ from flask import Flask,render_template
 import psycopg2
 import urlparse
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static",static_url_path="")
 
 """
 urlparse.uses_netloc.append("postgres")
