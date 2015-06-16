@@ -66,9 +66,14 @@ def word_magic(text):
 
 @app.route('/')
 def hello():
+    turnon()
+    print "on"
+    return render_template("presentation.html")
+
+def turnon():
     l = StdOutListener()
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = tweepy.Stream(auth, l)
     stream.filter(track=['love','hate'])
-    return render_template("presentation.html")
+    return True
