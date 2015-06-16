@@ -93,5 +93,5 @@ if __name__ == '__main__':
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = tweepy.Stream(auth, l)
-    stream.filter(track=['love','hate'])
+    stream.filter(track=['love'])
 
