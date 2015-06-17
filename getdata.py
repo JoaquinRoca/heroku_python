@@ -58,7 +58,7 @@ def add_word_cloud(tags):
     return for_word_cloud
 
 def createwc(words):
-    #global numoftweets
+    global numoftweets
     numoftweets +=1
     listtostring=' '.join(words)
     print listtostring
