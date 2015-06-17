@@ -9,6 +9,6 @@ app = Flask(__name__, static_folder="static",static_url_path="")
 def hello():
     return render_template("presentation.html")
 
-getdata.startup()
+
 
 

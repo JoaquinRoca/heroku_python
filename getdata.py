@@ -86,7 +86,7 @@ def word_magic(text):
            low.append(word)
     return(low)
 
-def startup():
+if __name__ == '__main__':
     l = StdOutListener()
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
