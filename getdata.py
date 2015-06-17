@@ -1,5 +1,4 @@
-import os
-from flask import Flask,render_template
+
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import psycopg2
@@ -60,7 +59,7 @@ def add_word_cloud(tags):
 
 def createwc(words):
     #global numoftweets
-    #numoftweets +=1
+    numoftweets +=1
     listtostring=' '.join(words)
     print listtostring
     print
@@ -69,6 +68,8 @@ def createwc(words):
     plt.imshow(wordcloud)
     plt.axis("off")
     plt.draw()
+    title= "Number of Tweets "+ str(numoftweets)
+    plt.suptitle(title)
     #title="static/test"+str(numoftweets)+".png"
     plt.savefig("static/wordcloud.png")
     #plt.show()
